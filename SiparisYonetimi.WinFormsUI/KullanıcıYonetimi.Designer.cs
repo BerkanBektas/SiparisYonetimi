@@ -32,6 +32,8 @@
             this.txtAra = new System.Windows.Forms.TextBox();
             this.btnAra = new System.Windows.Forms.Button();
             this.KullaniciBilgileri = new System.Windows.Forms.GroupBox();
+            this.chbAdmin = new System.Windows.Forms.CheckBox();
+            this.chbDurum = new System.Windows.Forms.CheckBox();
             this.btnSil = new System.Windows.Forms.Button();
             this.btnGuncelle = new System.Windows.Forms.Button();
             this.btnEkle = new System.Windows.Forms.Button();
@@ -47,8 +49,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txt = new System.Windows.Forms.Label();
-            this.chbDurum = new System.Windows.Forms.CheckBox();
-            this.chbAdmin = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKullanicilar)).BeginInit();
             this.KullaniciBilgileri.SuspendLayout();
             this.SuspendLayout();
@@ -58,8 +58,9 @@
             this.dgvKullanicilar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKullanicilar.Location = new System.Drawing.Point(12, 49);
             this.dgvKullanicilar.Name = "dgvKullanicilar";
-            this.dgvKullanicilar.Size = new System.Drawing.Size(420, 389);
+            this.dgvKullanicilar.Size = new System.Drawing.Size(1152, 389);
             this.dgvKullanicilar.TabIndex = 0;
+            this.dgvKullanicilar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKullanicilar_CellClick);
             // 
             // txtAra
             // 
@@ -76,6 +77,7 @@
             this.btnAra.TabIndex = 2;
             this.btnAra.Text = "Ara";
             this.btnAra.UseVisualStyleBackColor = true;
+            this.btnAra.Click += new System.EventHandler(this.btnAra_Click);
             // 
             // KullaniciBilgileri
             // 
@@ -96,30 +98,54 @@
             this.KullaniciBilgileri.Controls.Add(this.label3);
             this.KullaniciBilgileri.Controls.Add(this.label2);
             this.KullaniciBilgileri.Controls.Add(this.txt);
-            this.KullaniciBilgileri.Location = new System.Drawing.Point(468, 49);
+            this.KullaniciBilgileri.Location = new System.Drawing.Point(1191, 49);
             this.KullaniciBilgileri.Name = "KullaniciBilgileri";
             this.KullaniciBilgileri.Size = new System.Drawing.Size(320, 389);
             this.KullaniciBilgileri.TabIndex = 3;
             this.KullaniciBilgileri.TabStop = false;
             this.KullaniciBilgileri.Text = "Kullanicı Bilgileri";
             // 
+            // chbAdmin
+            // 
+            this.chbAdmin.AutoSize = true;
+            this.chbAdmin.Location = new System.Drawing.Point(137, 238);
+            this.chbAdmin.Name = "chbAdmin";
+            this.chbAdmin.Size = new System.Drawing.Size(55, 17);
+            this.chbAdmin.TabIndex = 17;
+            this.chbAdmin.Text = "Admin";
+            this.chbAdmin.UseVisualStyleBackColor = true;
+            // 
+            // chbDurum
+            // 
+            this.chbDurum.AutoSize = true;
+            this.chbDurum.Location = new System.Drawing.Point(137, 203);
+            this.chbDurum.Name = "chbDurum";
+            this.chbDurum.Size = new System.Drawing.Size(57, 17);
+            this.chbDurum.TabIndex = 16;
+            this.chbDurum.Text = "Durum";
+            this.chbDurum.UseVisualStyleBackColor = true;
+            // 
             // btnSil
             // 
+            this.btnSil.Enabled = false;
             this.btnSil.Location = new System.Drawing.Point(219, 275);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(75, 23);
             this.btnSil.TabIndex = 15;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnGuncelle
             // 
+            this.btnGuncelle.Enabled = false;
             this.btnGuncelle.Location = new System.Drawing.Point(119, 275);
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.Size = new System.Drawing.Size(75, 23);
             this.btnGuncelle.TabIndex = 14;
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // btnEkle
             // 
@@ -129,6 +155,7 @@
             this.btnEkle.TabIndex = 13;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // txtSifre
             // 
@@ -226,31 +253,12 @@
             this.txt.TabIndex = 0;
             this.txt.Text = "Adı";
             // 
-            // chbDurum
-            // 
-            this.chbDurum.AutoSize = true;
-            this.chbDurum.Location = new System.Drawing.Point(137, 203);
-            this.chbDurum.Name = "chbDurum";
-            this.chbDurum.Size = new System.Drawing.Size(57, 17);
-            this.chbDurum.TabIndex = 16;
-            this.chbDurum.Text = "Durum";
-            this.chbDurum.UseVisualStyleBackColor = true;
-            // 
-            // chbAdmin
-            // 
-            this.chbAdmin.AutoSize = true;
-            this.chbAdmin.Location = new System.Drawing.Point(137, 238);
-            this.chbAdmin.Name = "chbAdmin";
-            this.chbAdmin.Size = new System.Drawing.Size(55, 17);
-            this.chbAdmin.TabIndex = 17;
-            this.chbAdmin.Text = "Admin";
-            this.chbAdmin.UseVisualStyleBackColor = true;
-            // 
             // KullanıcıYonetimi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.ClientSize = new System.Drawing.Size(1661, 693);
             this.Controls.Add(this.KullaniciBilgileri);
             this.Controls.Add(this.btnAra);
             this.Controls.Add(this.txtAra);
