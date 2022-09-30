@@ -18,6 +18,12 @@ namespace SiparisYonetimi.Business.Managers
         {
             return context.Users.Where(user => user.Name.Contains(kelime)|| user.Surname.Contains(kelime)|| user.Email.Contains(kelime)).ToList();
         }
+        public User GetUser(string kullaniciAdi, string sifre)
+        {
+            var user = context.Users.FirstOrDefault(u => u.Username == kullaniciAdi && u.Password == sifre && u.IsAdmin && u.IsActive);
+            return user;
+
+        }
         public int Add(User user)
         {
             context.Users.Add(user);//Context e gelen user'ı ekliyor 

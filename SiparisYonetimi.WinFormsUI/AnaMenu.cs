@@ -41,6 +41,10 @@ namespace SiparisYonetimi.WinFormsUI
             müsteri.ShowDialog();
         }
 
-      
+        private void ürünYönetimiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UrunYonetimi urunYonetimi = new UrunYonetimi();
+            urunYonetimi.ShowDialog();
+        }
     }
 }
