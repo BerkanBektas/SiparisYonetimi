@@ -42,6 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnGeri = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarkalar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -182,11 +183,22 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "MarkaAdı";
             // 
+            // btnGeri
+            // 
+            this.btnGeri.Location = new System.Drawing.Point(689, 13);
+            this.btnGeri.Name = "btnGeri";
+            this.btnGeri.Size = new System.Drawing.Size(75, 23);
+            this.btnGeri.TabIndex = 4;
+            this.btnGeri.Text = "Geri ";
+            this.btnGeri.UseVisualStyleBackColor = true;
+            this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
+            // 
             // MarkaYonetimi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnGeri);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAra);
             this.Controls.Add(this.txtAra);
@@ -194,6 +206,7 @@
             this.Name = "MarkaYonetimi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Marka Yönetimi";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MarkaYonetimi_FormClosed);
             this.Load += new System.EventHandler(this.MarkaYonetimi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarkalar)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -219,5 +232,6 @@
         private System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.Button btnGuncelle;
         private System.Windows.Forms.Button btnEkle;
+        private System.Windows.Forms.Button btnGeri;
     }
 }

@@ -18,6 +18,12 @@ namespace SiparisYonetimi.WinFormsUI
         {
             InitializeComponent();
         }
+        void Geri()
+        {
+            AnaMenu ana = new AnaMenu();
+            ana.Show();
+            this.Hide();
+        }
         void Temizle()
         {
             txtAciklama.Text = String.Empty;
@@ -149,6 +155,25 @@ namespace SiparisYonetimi.WinFormsUI
         private void btnAra_Click(object sender, EventArgs e)
         {
             dgvMarkalar.DataSource =manager.GetAll(brand => brand.Name.Contains(txtAra.Text)||brand.Logo.Contains(txtAra.Text));
+        }
+
+        private void MarkaYonetimi_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnGeri_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Geri();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Tekrar dene");
+            }
+           
         }
     }
 }

@@ -184,5 +184,10 @@ namespace SiparisYonetimi.WinFormsUI
         {
             dgvUrunler.DataSource = manager.GetAll(m => m.Name.Contains(txtAra.Text)|| m.Description.Contains(txtAra.Text));
         }
+
+        private void UrunYonetimi_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

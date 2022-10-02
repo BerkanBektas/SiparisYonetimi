@@ -141,5 +141,10 @@ namespace SiparisYonetimi.WinFormsUI
         {
             dgvKategoriler.DataSource = manager.GetAll((kategori => kategori.Name.Contains(txtAra.Text) || kategori.Description.Contains(txtAra.Text)));
         }
+
+        private void KategoriYonetimi_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

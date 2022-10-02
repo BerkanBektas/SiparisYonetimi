@@ -25,6 +25,12 @@ namespace SiparisYonetimi.WinFormsUI
             dgvKullanicilar.DataSource = manager.GetAll();
 
         }
+        void Geri()
+        {
+            AnaMenu ana =new AnaMenu();
+            ana.Show();
+            this.Hide();
+        }
         void Temizle()
         {
             txtAdi.Text = String.Empty;
@@ -139,6 +145,23 @@ namespace SiparisYonetimi.WinFormsUI
         private void btnAra_Click(object sender, EventArgs e)
         {
             dgvKullanicilar.DataSource = manager.GetAll(txtAra.Text);
+        }
+
+        private void KullanıcıYonetimi_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnGeri_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Geri();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hata");
+            }
         }
     }
 }

@@ -49,6 +49,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txt = new System.Windows.Forms.Label();
+            this.btnGeri = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKullanicilar)).BeginInit();
             this.KullaniciBilgileri.SuspendLayout();
             this.SuspendLayout();
@@ -81,6 +82,7 @@
             // 
             // KullaniciBilgileri
             // 
+            this.KullaniciBilgileri.Controls.Add(this.btnGeri);
             this.KullaniciBilgileri.Controls.Add(this.chbAdmin);
             this.KullaniciBilgileri.Controls.Add(this.chbDurum);
             this.KullaniciBilgileri.Controls.Add(this.btnSil);
@@ -253,6 +255,16 @@
             this.txt.TabIndex = 0;
             this.txt.Text = "Adı";
             // 
+            // btnGeri
+            // 
+            this.btnGeri.Location = new System.Drawing.Point(119, 330);
+            this.btnGeri.Name = "btnGeri";
+            this.btnGeri.Size = new System.Drawing.Size(73, 23);
+            this.btnGeri.TabIndex = 18;
+            this.btnGeri.Text = "Ana menü";
+            this.btnGeri.UseVisualStyleBackColor = true;
+            this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
+            // 
             // KullanıcıYonetimi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,6 +278,7 @@
             this.Name = "KullanıcıYonetimi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kullanıcı Yonetimi";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.KullanıcıYonetimi_FormClosed);
             this.Load += new System.EventHandler(this.KullanıcıYonetimi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKullanicilar)).EndInit();
             this.KullaniciBilgileri.ResumeLayout(false);
@@ -298,5 +311,6 @@
         private System.Windows.Forms.Button btnEkle;
         private System.Windows.Forms.CheckBox chbAdmin;
         private System.Windows.Forms.CheckBox chbDurum;
+        private System.Windows.Forms.Button btnGeri;
     }
 }

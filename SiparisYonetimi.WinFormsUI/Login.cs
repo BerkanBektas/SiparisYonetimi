@@ -19,20 +19,29 @@ namespace SiparisYonetimi.WinFormsUI
         }
         UserManager manager = new UserManager();
         private void btnGiris_Click(object sender, EventArgs e)
-        {      
-            try
+        {
+            if (string.IsNullOrWhiteSpace(txtKullaniciAdi.Text) || string.IsNullOrWhiteSpace(txtSifre.Text))
             {
-                var kullanici = manager.GetUser(txtKullaniciAdi.Text, txtSifre.Text);
-                if (kullanici != null)
-                {
-
-                }
-
+                MessageBox.Show("Kullanıcı adı ve şifre boş geçilemez");
+                return;
             }
-            catch (Exception)
+            else
             {
-
-                MessageBox.Show("Hata oluştu");
+                try
+                {
+                    var kullanici = manager.GetUser(txtKullaniciAdi.Text, txtSifre.Text);
+                    if (kullanici != null)
+                    {
+                        AnaMenu anaMenu = new AnaMenu();
+                        this.Hide();//Bu formu gizle
+                        anaMenu.Show();//Menü formunu göster 
+                    }
+                    else MessageBox.Show("Giriş Başarısız! Kullanıcı Bulunamadı");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Hata oluştu");
+                }
             }
         }
     }
